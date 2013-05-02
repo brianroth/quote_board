@@ -1,2 +1,1 @@
-quote_board
-===========
+Rails 4 experiment
