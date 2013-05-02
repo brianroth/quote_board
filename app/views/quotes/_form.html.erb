@@ -1,20 +1,13 @@
-<%= form_for @quote, :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
-    <%= f.label :body, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :body, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :author, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :author, :class => 'text_field' %>
-    </div>
-  </div>
+<%= simple_form_for @quote, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> Quote</legend>
 
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                quotes_path, :class => 'btn' %>
-  </div>
+    <%= f.input :body %>
+    <%= f.input :author %>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', quotes_path, :class => 'btn' %>
+    </div>
+  </fieldset>
 <% end %>
